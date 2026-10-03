@@ -41,6 +41,12 @@ test('makeDefaultState defaults to English', () => {
   assert.equal(makeDefaultState().language, 'en');
 });
 
+test('makeDefaultState leaves the session title empty (clients show a localized default)', () => {
+  assert.equal(makeDefaultState().title, '');
+  assert.equal(t('en', 'title.default'), 'Blood on the Clocktower');
+  assert.equal(t('zh-CN', 'title.default'), '染·钟楼谜团');
+});
+
 test('SET_LANGUAGE switches to a supported language', () => {
   const state = makeDefaultState();
   const { changed } = applyAction(state, { type: 'SET_LANGUAGE', language: 'zh-CN' });

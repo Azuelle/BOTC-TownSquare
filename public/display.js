@@ -50,7 +50,7 @@
     document.body.classList.toggle('night', gs.phase === 'night');
 
     // Header
-    document.getElementById('session-title').textContent = gs.title || '';
+    document.getElementById('session-title').textContent = gs.title || I18N.t('title.default');
     document.getElementById('phase-banner').textContent =
       I18N.t(gs.phase === 'day' ? 'phase.day' : 'phase.night', { n: gs.dayNumber });
 
